@@ -11,7 +11,6 @@ import {
   Text,
   View
 } from 'react-native';
-import {StackNavigator} from 'react-navigation';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -27,19 +26,17 @@ class SimpleProp extends Component {
         );
     }
 }
-class HomeScreen extends Component {
-  static navigationOptions = {
-    title: 'Home',
-  }; 
+
+type Props = {};
+export default class App extends Component<Props> {
   render() {
-    const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <Text style={styles.instructions} onPress={()=> navigate('Home')}>
-          Go to child page
+        <Text style={styles.instructions}>
+          To get started, edit App.js
         </Text>
         <Text style={styles.instructions}>
           {instructions}
@@ -49,39 +46,6 @@ class HomeScreen extends Component {
         </Text>
       </View>
     );
-  }
-}
-class ChildScreen extends Component {
-  static navigationOptions = {
-    title: 'Child',
-  }; 
-  render() {
-    const {navigate} = this.props.navigation;
-    return (
-      <View style={styles.container}>
-        <Text onPress={()=> navigate('Home')}>
-          Go Back To Home
-        </Text>
-      </View>
-    );
-  }
-}
-
-const NavigationApp = StackNavigator({
-  Home: { screen: HomeScreen},
-  Child: { screen: ChildScreen},
-},{
-  navigationOptions:{
-    headerStyle:{
-      marginTop: 5
-    }
-  }
-})
-
-
-export default class App extends Component {
-  render() {
-    return <NavigationApp/>;
   }
 }
 
@@ -99,7 +63,6 @@ const styles = StyleSheet.create({
 
     fontSize: 20,
     textAlign: 'center',
-    marginTop: 10,
     marginBottom: 5,
   },
   instructions: {

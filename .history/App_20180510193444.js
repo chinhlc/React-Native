@@ -53,7 +53,7 @@ class HomeScreen extends Component {
 }
 class ChildScreen extends Component {
   static navigationOptions = {
-    title: 'Child',
+    title: 'Child Page',
   }; 
   render() {
     const {navigate} = this.props.navigation;
@@ -70,12 +70,6 @@ class ChildScreen extends Component {
 const NavigationApp = StackNavigator({
   Home: { screen: HomeScreen},
   Child: { screen: ChildScreen},
-},{
-  navigationOptions:{
-    headerStyle:{
-      marginTop: 5
-    }
-  }
 })
 
 

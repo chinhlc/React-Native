@@ -11,6 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
+import Expo from 'expo';
 import {StackNavigator} from 'react-navigation';
 
 const instructions = Platform.select({
@@ -27,10 +28,7 @@ class SimpleProp extends Component {
         );
     }
 }
-class HomeScreen extends Component {
-  static navigationOptions = {
-    title: 'Home',
-  }; 
+class HomeScreen extends Component {  
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -38,8 +36,8 @@ class HomeScreen extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <Text style={styles.instructions} onPress={()=> navigate('Home')}>
-          Go to child page
+        <Text style={styles.instructions}>
+          To get started, edit App.js
         </Text>
         <Text style={styles.instructions}>
           {instructions}
@@ -51,35 +49,20 @@ class HomeScreen extends Component {
     );
   }
 }
-class ChildScreen extends Component {
-  static navigationOptions = {
-    title: 'Child',
-  }; 
-  render() {
-    const {navigate} = this.props.navigation;
-    return (
-      <View style={styles.container}>
-        <Text onPress={()=> navigate('Home')}>
-          Go Back To Home
-        </Text>
-      </View>
-    );
-  }
-}
 
 const NavigationApp = StackNavigator({
   Home: { screen: HomeScreen},
-  Child: { screen: ChildScreen},
+  Childpage: { screen: ChildScreen },
 },{
-  navigationOptions:{
-    headerStyle:{
-      marginTop: 5
+  navigationOptions: {
+    headerStyle: {
+      marginTop: Expo.Constants.statusBarHeight
     }
   }
 })
 
-
-export default class App extends Component {
+type Props = {};
+export default class App extends Component<Props> {
   render() {
     return <NavigationApp/>;
   }
@@ -99,7 +82,6 @@ const styles = StyleSheet.create({
 
     fontSize: 20,
     textAlign: 'center',
-    marginTop: 10,
     marginBottom: 5,
   },
   instructions: {

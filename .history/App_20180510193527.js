@@ -53,7 +53,7 @@ class HomeScreen extends Component {
 }
 class ChildScreen extends Component {
   static navigationOptions = {
-    title: 'Child',
+    title: 'Child Page',
   }; 
   render() {
     const {navigate} = this.props.navigation;
