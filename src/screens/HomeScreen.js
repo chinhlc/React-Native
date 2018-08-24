@@ -38,13 +38,13 @@ class HomeScreen extends React.Component {
       <FlatList
         data={POSTS}
         keyExtractor={item => item.id}
-        renderItem={this.renderItem}
+        renderItem={this.renderContent}
         ItemSeparatorComponent={this.renderSeparator}
         style={{ flex: 1 }}
       />
     );
   }
-  renderItem = row => {
+  renderContent = row => {
     const post = row.item;
     const imageWidth = Dimensions.get('window').width;
     const imageHeight = imageWidth * (9 / 16);
@@ -55,7 +55,7 @@ class HomeScreen extends React.Component {
     };
     const shortContent = post.content
       .split(/\s+/)
-      .slice(0, 80)
+      .slice(0, 20)
       .join(' ');
     return (
       <TouchableOpacity

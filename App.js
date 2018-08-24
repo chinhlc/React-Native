@@ -5,29 +5,41 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View} from 'react-native';
+import { Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
 import {StackNavigator} from 'react-navigation';
 
-import HomeScreen from './src/demo/1.1.home';
-import ChildScreen from './src/demo/2.child';
+import HomeScreen from './src/screens/HomeScreen';
+import PostScreen from './src/screens/PostScreen';
+import CommentListScreen from './src/screens/CommentListScreen';
 
+const options = {
+  title: '#ChuyenCuaDev',
+  headerTintColor: '#FFF',
+  headerStyle: {
+    backgroundColor: '#005ea0'
+  }
+};
 
-const NavigationApp = StackNavigator({
-  Front: { screen: HomeScreen},
-  trangTrong: { screen: ChildScreen},
-})
-// {
-//   navigationOptions:{
-//     headerStyle:{
-//       marginTop: 5
-//     }
-//   }
-// }
+const AppNavigator = new StackNavigator(
+  {
+    home: {
+      screen: HomeScreen,
+      navigationOptions: options
+    },
+    post: {
+      screen: PostScreen,
+      navigationOptions: options
+    },
+    commentList: {
+      screen: CommentListScreen,
+      navigationOptions: options
+    }
+  },
+  {
+    cardStyle: {
+      paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+    }
+  }
+);
 
-export default NavigationApp;
-
-// export default class App extends Component {
-//   render() {
-//     return <NavigationApp/>;
-//   }
-// }
+export default AppNavigator;
