@@ -13,25 +13,25 @@ class PostScreen extends React.Component {
     this.props.navigation.navigate('commentList');
   };
   render() {
-    const { post } = this.props.navigation.state.params;
+    const { ItemBlog } = this.props.navigation.state.params;
     const imageWidth = Dimensions.get('window').width;
 
     return (
       <View style={styles.container}>
         <ScrollView>
           <Image
-            source={{ uri: post.imageUrl }}
+            source={{ uri: ItemBlog.imageUrl }}
             style={{ width: imageWidth, height: imageWidth }}
             resizeMode="cover"
           />
-          <Text style={styles.content}>{post.content}</Text>
+          <Text style={styles.content}>{ItemBlog.content}</Text>
         </ScrollView>
         <View style={styles.meta}>
-          <Text style={styles.metaText}>{post.author}</Text>
+          <Text style={styles.metaText}>{ItemBlog.author}</Text>
           <TouchableOpacity onPress={this.handleCommentPress}>
-            <Text style={styles.metaText}>comments: {post.viewed}</Text>
+            <Text style={styles.metaText}>comments: {ItemBlog.viewed}</Text>
           </TouchableOpacity>
-          <Text style={styles.metaText}>viewed: {post.viewed}</Text>
+          <Text style={styles.metaText}>viewed: {ItemBlog.viewed}</Text>
         </View>
       </View>
     );

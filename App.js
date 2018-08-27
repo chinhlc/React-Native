@@ -26,7 +26,7 @@ const AppNavigator = new StackNavigator(
       screen: HomeScreen,
       navigationOptions: options
     },
-    post: {
+    postDetail: {
       screen: PostScreen,
       navigationOptions: options
     },
@@ -43,3 +43,16 @@ const AppNavigator = new StackNavigator(
 );
 
 export default AppNavigator;
+
+// yarn add faker moment
+// react-navigation:  điều hướng trong app.
+// faker:             tạo dữ liệu mẫu
+// moment:            format ngày tháng
+
+// <TouchableOpacity />: render một link, nhưng không có style gì cả, khi user click vào nó sẽ có hiệu ứng mờ đi một chút, nhìn nó sẽ nhẹ nhàng hơn.
+                          // handlePostPressed:        dùng bind để có thể truyền thêm extra argument
+// <FlatList />:         dùng để render một list.
+                          // renderItem:               gọi function để lấy nội dung sau đó render vào list.
+                          // ItemSeparatorComponent:   render html,style để dễ phân biệt 2 Item cạnh nhau
+// <Image />:            hiển thị hình ảnh.
+// Dimensions:           api để lấy kích thước màn hình.

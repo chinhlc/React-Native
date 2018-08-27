@@ -28,9 +28,9 @@ while (n <= 100) {
 }
 
 class HomeScreen extends React.Component {
-  handlePostPressed = post => {
-    this.props.navigation.navigate('post', {
-      post: post
+  handlePostPressed = postAr => {
+    this.props.navigation.navigate('postDetail', {
+      ItemBlog: postAr
     });
   };
   render() {
